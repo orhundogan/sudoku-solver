@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sudoku Solver</title>
+        <link href="../css/header.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/table.css" rel="stylesheet">
+        <link href="../css/button.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="main-header">
+            <img src="../visuals/sudoku.png" alt="Logo">
+        </header>
+        <div class="container">
+            <h1>Fill the Sudoku Board</h1>
+            <div class="table-div">
+                <table class="table" id="grid" tabindex="-1">
+                    <tr>
+                        <td><input class="cell" id="cell-0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-3"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-4"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-5"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-6"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-7"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-8"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>
+                        <td><input class="cell" id="cell-9"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-10" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-12" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-13" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-15" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-16" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-17" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-18" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-19" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-20" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-21" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-22" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-23" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-24" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-25" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-26" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-27" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-28" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-29" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-30" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-31" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-32" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-33" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-34" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-35" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-36" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-37" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-38" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-39" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-40" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-41" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-42" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-43" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-44" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-45" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-46" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-47" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-49" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-50" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-51" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-52" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-53" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-54" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-55" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-56" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-57" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-58" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-59" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-60" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-61" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-62" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-63" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-64" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-65" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-66" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-67" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-68" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-69" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-70" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-71" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                      <tr>          
+                        <td><input class="cell" id="cell-72" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-73" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-74" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-75" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-76" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-77" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        
+                        <td><input class="cell" id="cell-78" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-79" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                        <td><input class="cell" id="cell-80" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  type="text" maxlength="1"></td>
+                      </tr>
+              
+                </table>
+            </div>
+            <div class="button-div">
+                <button class="solve-button" id="solve-button">Solve</button>
+                <button onClick="window.location.reload();" class="reset-button" id="reset-button">Reset</button>
+            </div>
+            <h2 id="time" class="time"></h2>
+        </div>
+        <script src="../javascript/table-solver.js"></script>
+    </body>
+    
